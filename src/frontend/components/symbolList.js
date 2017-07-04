@@ -14,35 +14,15 @@ class SymbolList extends React.Component{
 
 
 		}
-	}
+}
 
-    updateCurrency(e){
-		this.setState({amount:e.target.value.toUpperCase() })
-	}
-
-
-    HitApi = () => {
-    	console.log(this.props.data)
-    	
-    	this.props.dispatch(getCurrency(this.state.amount))
-    }
-
-    select = () =>{
-    	
-    	this.props.dispatch(selectCurrency(this.state.amount))
-    }
-  
+   
 
 	render() {
-		const {currency} = this.props.Conecter
-		const {select_c} = this.props.Conecter
-	
-		let i = 0;
+		
 		
 			return(
 				<div>
-					
-					
 				
 				</div>		
 	

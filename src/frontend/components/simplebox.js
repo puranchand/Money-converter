@@ -88,7 +88,7 @@ class SimpleBox extends React.Component{
 				<div>
 				<form>
 						
-					<h4>Currency Converter</h4>
+					<h2>Currency Converter</h2>
 					
 					
 					<div>
@@ -137,7 +137,7 @@ class SimpleBox extends React.Component{
 						</div>
 						<p>
 							<h6 className="target-amount u-text-center">
-							Currency Converter Made by <a href ='#'>Puran Chand</a> and <a href=''>Github</a>
+							Currency Converter Made by <a href ='#'>Puran Chand</a> and <a href='https://github.com/puranchand/Money-converter'>Github Source</a>
 							</h6>
 						</p>
             		</div>
