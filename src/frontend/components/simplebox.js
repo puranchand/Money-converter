@@ -3,51 +3,33 @@ import React from 'react';
 import { getCurrency ,selectCurrency, convertRates} from '../actions/actions';
 import {connect} from 'react-redux';
 
-import OnEvent from 'react-onevent';
-
-
-
 class SimpleBox extends React.Component{
 
-		constructor(props){
+	constructor(props){
 		super(props)
 		this.state = {
 			amount:1,
 			base:'',
 			target:'',
 			base_amount: 1,
-      		target_amount: 1,
-
+      		target_amount: 1
 		}
 	}
-
-
-
-	
 
     updateCurrency(e){
 		this.setState({amount:e.target.value })
 	}
 		
-
-   
 	componentWillMount() {
 		this.props.dispatch(selectCurrency())
 	}
 	
-   
-  
   	onSelect = (e) => {
   		this.setState({base : e.target.value})
-  		
-  		
   	}
 
-
   	onSetValue = (e) => {
-  		
   		this.setState({target: e.target.value})
-
   	}
 
   	componentDidUpdate(prevProps, prevState) {
@@ -65,71 +47,44 @@ class SimpleBox extends React.Component{
   		}
   	}
 
-
-	// convertRates = (base, target) => {
-	// 	if(!this.base){
-	// 		return;
-	// 	}
-	// 	convertRates(this.base.name,this.target.name)
-	// 	.then(res => this.target_amount=select_c*parseInt(this.amount,10));
-	// }
-
-
-
 	render() {
 		const {currency} = this.props.Conecter
 		const {select_c} = this.props.Conecter
 
 		console.log(this.state.target)
-
 		let i = 0;
 		
-			return(
-				<div>
+		return(
+			<div>
 				<form>
-						
-					<h2>Currency Converter</h2>
-					
-					
+					<span className="header"><h2>Currency Converter</h2></span>
 					<div>
 						<div className="row">
 							<div className="one-half column">
-							From
-							<select value={this.state.base} onChange={this.onSelect} name='base'>
-							
-							{ select_c && select_c.length && select_c.map((data,index) =>
-								
-								<option key={index}>{data.name}</option>
-								
-							   )}
-							 </select>   
-							
+								From
+								<select value={this.state.base} onChange={this.onSelect} name='base'>
+								{ select_c && select_c.length && select_c.map((data,index) =>	
+									<option key={index}>{data.name}</option>		
+								   )}
+								 </select>   	
 							</div>
-
 							<div className="one-half column" >
-							To
-							<select value={this.state.target} onChange={this.onSetValue} name = 'target'>
-							
-							{ select_c && select_c.length && select_c.map((data,index) =>
-								
-								<option value={data.name} key={index}>
-									{data.name}
-								</option>
-								
-							   )}
-							 </select>   
-							
+								To
+								<select value={this.state.target} onChange={this.onSetValue} name = 'target'>
+								{ select_c && select_c.length && select_c.map((data,index) =>
+									<option value={data.name} key={index}>
+										{data.name}
+									</option>	
+								   )}
+								 </select>   
 							</div>
-							</div >
-
+						</div >
 						<div className="row">
-						Amount
-							<OnEvent enter={this.select} >
-		    					<input type = "number" min={1} value = {this.state.amount} onChange = {(e) => this.updateCurrency(e)}/>
-							</OnEvent>
+							Amount
+		    				<input type = "number" min={1} value = {this.state.amount} onChange = {(e) => this.updateCurrency(e)}/>
 						</div>
-
-						<div><h5 className="target-amount u-text-center">
+						<div>
+							<h5 className="target-amount u-text-center">
 							{this.state.amount}&nbsp;{this.state.base} &nbsp; &emsp;=
 							{this.state.amount * this.props.Conecter.fetching_value}
 							{this.state.target}
@@ -137,21 +92,19 @@ class SimpleBox extends React.Component{
 						</div>
 						<p>
 							<h6 className="target-amount u-text-center">
-							Currency Converter Made by <a href ='#'>Puran Chand</a> and <a href='https://github.com/puranchand/Money-converter'>Github Source</a>
+							Currency Converter Made by 
+							<a href ='http://puranchand.com/'> Puran Chand </a>
+							 and  
+							<a href='https://github.com/puranchand/Money-converter'> Github Source.</a>
 							</h6>
 						</p>
             		</div>
-						
-					
 				</form>
-				</div>		
-	
-			
+			</div>		
 		)
 	}
 }
  
-
 function mapStateToProps(state) {
     return {
         Conecter: state.activeBtn

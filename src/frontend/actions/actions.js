@@ -1,7 +1,6 @@
 import * as types from './actionTypes';
 import axios from 'axios'
 import qs from 'qs'
-import SymbolList from '../components/symbolList';
 
 const Url = `http://api.fixer.io/latest`;
 
